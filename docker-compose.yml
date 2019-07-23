@@ -1,0 +1,8 @@
+version: '2'
+services:
+  delegated:
+    build: . 
+    command: '-P8080 SERVER=http MOUNT="/* /var/www/*" RELAY=no RELIABLE="*"'
+    ports:
+      - 8080:8080
+    restart: always

@@ -1,0 +1,22 @@
+function FindProxyForURL(url, host) {
+    tor = "SOCKS5 84.201.156.144:9050";
+// If the hostname matches, send proxy.
+    if (shExpMatch(host, "(*.yandex.ru|yandex.ru)")||shExpMatch(host, "(*.yandex.net|yandex.net)"))
+        return tor;
+
+    if (shExpMatch(host, "*.onion"))
+        return tor;
+
+    if (shExpMatch(host, "(*.vk.com|vk.com)"))
+        return tor;
+    
+    if (shExpMatch(host, "(*.mail.ru|mail.ru)"))
+        return tor;
+
+    if (shExpMatch(host, "2ip.ru"))
+        return tor;        
+ 
+// DEFAULT RULE: All other traffic, use below proxies, in fail-over order.
+    return "DIRECT";
+ 
+}
