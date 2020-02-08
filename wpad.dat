@@ -1,5 +1,5 @@
 function FindProxyForURL(url, host) {
-    tor = "SOCKS5 84.201.156.144:9050";
+    tor = "SOCKS5 localhost:9050";
 // If the hostname matches, send proxy.
     if (shExpMatch(host, "(*.yandex.ru|yandex.ru)")||shExpMatch(host, "(*.yandex.net|yandex.net)"))
         return tor;
