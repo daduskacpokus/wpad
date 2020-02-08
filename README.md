@@ -1,0 +1,1 @@
+Simple wpad-script example
