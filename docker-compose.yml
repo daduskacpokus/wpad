@@ -1,8 +1,16 @@
 version: '2'
 services:
-  delegated:
-    build: . 
-    command: '-P8080 SERVER=http MOUNT="/* /var/www/*" RELAY=no RELIABLE="*"'
+  httpd:
+    build: .
     ports:
-      - 8080:8080
+      - 8080:80
     restart: always
+  proxy:
+    image: dperson/torproxy
+    restart: always
+    ports:
+      - 8118:8118
+      - 9050:9050
+    environment:
+      - 'LOCATION=RU'
+
